@@ -1,9 +1,9 @@
-from character import Character
+from character import *
 import random
 
 class Enemy(Character):
-    def __init__(self, center_x, center_y, speed):
-        super().__init__(center_x, center_y, speed)
+    def __init__(self, center_x, center_y, speed, color):
+        super().__init__(center_x, center_y, speed, color)
         self.time_to_change_direction = 0
 
     def pick_new_direction(self):

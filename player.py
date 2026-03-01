@@ -1,8 +1,10 @@
+from arcade.color import YELLOW
+
 from character import Character
 
 class Player(Character):
     def __init__(self, center_x, center_y, speed):
-        super().__init__(center_x, center_y, speed)
+        super().__init__(center_x, center_y, speed,YELLOW)
         self.score = 0
         self.lives = 3
 

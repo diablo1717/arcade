@@ -1,5 +1,16 @@
-class Coin:
+import arcade
+from arcade.color import YELLOW
+
+TILE_SIZE = 40
+
+class Coin(arcade.Sprite):
     def __init__(self, center_x, center_y, value=10):
+        super().__init__()
+        radius = TILE_SIZE
+        texture = arcade.make_circle_texture(radius, YELLOW)
+        self.texture = texture
+        self.width = texture.width - 4
+        self.height = texture.height - 4
         self.center_x = center_x
         self.center_y = center_y
         self.value = value
