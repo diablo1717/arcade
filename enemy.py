@@ -1,9 +1,10 @@
 from character import *
 import random
+from arcade.color import RED 
 
 class Enemy(Character):
-    def __init__(self, center_x, center_y, speed, color):
-        super().__init__(center_x, center_y, speed, color)
+    def __init__(self, center_x, center_y, speed):
+        super().__init__(center_x, center_y, speed, RED)
         self.time_to_change_direction = 0
 
     def pick_new_direction(self):

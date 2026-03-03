@@ -1,6 +1,5 @@
 import arcade
-
-TILE_SIZE = 40
+from constants import * 
 
 class Character(arcade.Sprite):
     def __init__(self, speed, x, y, color):
