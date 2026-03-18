@@ -29,8 +29,8 @@ class PacmanGame(arcade.View):
         rows = len(LEVEL_MAP) 
         for row_idx, row in enumerate(LEVEL_MAP):
             for col_idx, cell in enumerate(row):
-                x = col_idx * TILE_SIZE + TILE_SIZE
-                y = (rows - row_idx - 1) * TILE_SIZE + TILE_SIZE
+                x = col_idx * TILE_SIZE + TILE_SIZE / 2
+                y = (rows - row_idx - 1) * TILE_SIZE + TILE_SIZE / 2
                 if cell == "#":
                     self.wall_list.append(Wall(x, y))
                 elif cell == ".":
