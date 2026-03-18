@@ -1,7 +1,6 @@
 import arcade
 from arcade.color import YELLOW
-
-TILE_SIZE = 40
+from constants import *
 
 class Coin(arcade.Sprite):
     def __init__(self, center_x, center_y, value=10):

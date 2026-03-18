@@ -1,7 +1,7 @@
 import arcade
 from arcade.color import BLUE_SAPPHIRE
+from constants import *
 
-TILE_SIZE = 40
 class Wall(arcade.Sprite):
     def __init__(self, center_x, center_y):
         super().__init__()
