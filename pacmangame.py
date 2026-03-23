@@ -38,11 +38,13 @@ class PacmanGame(arcade.View):
 
                 elif cell == "P":
                     print(f"x = {x}, y = {y}") 
-                    self.player_list.append(Player(x, y, 0))
+                    self.player_list.append(Player(x, y, PLAYER_SPEED))
 
                 elif cell == "G":
                     print(f"x = {x}, y = {y}") 
-                    self.ghost_list.append(Enemy(x, y, 0))
+                    self.ghost_list.append(Enemy(x, y, 5))
+
+        self.player = self.player_list[0]
 
 
     def on_draw(self):
@@ -56,3 +58,42 @@ class PacmanGame(arcade.View):
         arcade.draw_text(f"lives: {player.lives}", 50, WINDOW_HEIGHT - 120)
         if self.game_over:
             arcade.draw_text(f"You lost!", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2)
+
+
+    
+    # the lines that set change_x, change_y to 0 are there to not allow
+    # the player to move in a diagonal  
+    def on_key_press(self, key, modifiers):
+        if key == arcade.key.UP:
+            self.player.change_y = 1
+            self.player.change_x = 0
+
+        elif key == arcade.key.DOWN:
+            self.player.change_y = -1
+            self.player.change_x = 0
+
+        elif key == arcade.key.RIGHT:
+            self.player.change_x = 1
+            self.player.change_y = 0
+
+        elif key == arcade.key.LEFT:
+            self.player.change_x = -1
+            self.player.change_y = 0
+
+
+
+
+    def on_key_release(self, key, modifiers):
+        if key == arcade.key.UP or key == arcade.key.DOWN:
+            self.player.change_y = 0
+        
+        if key == arcade.key.RIGHT or key == arcade.key.LEFT:
+            self.player.change_x = 0
+
+
+
+
+
+    def on_update(self, delta_time):
+        self.player.move()
+

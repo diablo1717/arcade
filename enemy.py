@@ -13,6 +13,7 @@ class Enemy(arcade.Sprite):
         self.center_x = center_x
         self.center_y = center_y
         self.time_to_change_direction = 0
+        self.speed = speed
 
     def pick_new_direction(self):
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0), (0, 0)]
