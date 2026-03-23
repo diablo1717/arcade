@@ -54,8 +54,8 @@ class PacmanGame(arcade.View):
         self.ghost_list.draw() 
         self.player_list.draw()
         player = self.player_list[0]
-        arcade.draw_text(f"score: {player.score}", 50, WINDOW_HEIGHT - 100)
-        arcade.draw_text(f"lives: {player.lives}", 50, WINDOW_HEIGHT - 120)
+        arcade.draw_text(f"score: {player.score}", 50, WINDOW_HEIGHT - 50)
+        arcade.draw_text(f"lives: {player.lives}", 50, WINDOW_HEIGHT - 70)
         if self.game_over:
             arcade.draw_text(f"You lost!", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2)
 
@@ -93,7 +93,10 @@ class PacmanGame(arcade.View):
 
 
 
-
     def on_update(self, delta_time):
         self.player.move()
+        # here you call the function that moves the ghosts
 
+        coins_touched = arcade.check_for_collision_with_list(self.player, self.coin_list)
+        for coin in coins_touched:
+            coin.remove_from_sprite_lists()
