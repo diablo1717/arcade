@@ -7,10 +7,10 @@ class Player(arcade.Sprite):
     def __init__(self, center_x, center_y, speed):
         super().__init__()
         radius = TILE_SIZE
-        texture = arcade.make_circle_texture(radius * 2, YELLOW)
+        texture = arcade.make_circle_texture(radius, YELLOW)
         self.texture = texture
-        self.width = texture.width - 9
-        self.height = texture.height - 9
+        self.width = texture.width - 4
+        self.height = texture.height - 4
         self.center_x = center_x 
         self.center_y = center_y
         self.speed = speed

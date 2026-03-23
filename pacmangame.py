@@ -17,8 +17,8 @@ class PacmanGame(arcade.View):
         self.player = None 
         self.game_over = False
         self.background_color = arcade.color.BLACK
-        self.start_x = 0
-        self.start_y = 0
+        self.start_x = TILE_SIZE * 2
+        self.start_y = TILE_SIZE * 2
 
     def setup(self):
         self.wall_list = arcade.SpriteList() 
@@ -36,9 +36,10 @@ class PacmanGame(arcade.View):
                 elif cell == ".":
                     self.coin_list.append(Coin(x, y))
 
+                # here the player is not positioned based on the map 
                 elif cell == "P":
                     print(f"x = {x}, y = {y}") 
-                    self.player_list.append(Player(x, y, PLAYER_SPEED))
+                    self.player_list.append(Player(self.start_x, self.start_y, PLAYER_SPEED))
 
                 elif cell == "G":
                     print(f"x = {x}, y = {y}") 
